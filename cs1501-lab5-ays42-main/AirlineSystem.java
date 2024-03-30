@@ -42,20 +42,19 @@ public class AirlineSystem {
 	 * filepath to the data file, which can be opened with a file read stream.
 	 */
 	public void readGraph () throws IOException {
-		Scanner scan = new Scanner(System.in);
+		Scanner inScan = new Scanner(System.in);
 		System.out.println("Please enter graph filename:");
-		String fileName = scan.nextLine();
+		String fileName = inScan.nextLine();
 		Scanner fileScan = new Scanner(new FileInputStream(fileName));
 
 		//TODO1: Complete this method to read the graph from the input file
 		//      (e.g., data1.txt)
 
-		int i = Integer.parseInt(fileScan.nextLine()); // initialize int and read input file line
-		G = new Digraph(i); // create Digraph with "i" vertices
-
-		cityNames = new String[i]; // create an array of strings with "i" indices
-		for(int j = 0; j < i; j++) { // loop through cityNames and scan each line of input file
-			cityNames[j] = fileScan.nextLine();
+		int v = Integer.parseInt(fileScan.nextLine()); // initialize int and read input file line
+		G = new Digraph(v); // create Digraph with "i" vertices
+		cityNames = new String[v]; // create an array of strings with "i" indices
+		for(int i = 0; i < v; i++) { // loop through cityNames and scan each line of input file
+			cityNames[i] = fileScan.nextLine();
 		}
 
 		while(fileScan.hasNext()) { // as long as the input file has more data, we can loop and start building the Digraph
@@ -82,9 +81,10 @@ public class AirlineSystem {
 
 		for(int i = 0; i < G.v; i++) { // In order to do this, we must first loop over all vertices in Digraph
 			System.out.println(cityNames[i] + ": "); // Then, we can print the first city that matches with current vertex
-			for(DirectedEdge d : G.adj(i)) { // Here I added a nested enhanced for loop that will iterate over EDGES of vertices rather than the vertices themselves
-				System.out.println(cityNames[d.to()]); // Finally, print the destination city that matches current edge
+			for(DirectedEdge e : G.adj(i)) { // Here I added a nested enhanced for loop that will iterate over EDGES of vertices rather than the vertices themselves
+				System.out.println(cityNames[e.to()]); // Finally, print the destination city that matches current edge
 			}
+			System.out.println();
 		}
 	}
 
