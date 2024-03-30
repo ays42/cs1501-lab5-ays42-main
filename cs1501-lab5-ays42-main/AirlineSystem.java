@@ -51,8 +51,8 @@ public class AirlineSystem {
 		//      (e.g., data1.txt)
 
 		int v = Integer.parseInt(fileScan.nextLine()); // initialize int and read input file line
-		G = new Digraph(v); // create Digraph with "i" vertices
-		cityNames = new String[v]; // create an array of strings with "i" indices
+		G = new Digraph(v); // create Digraph with v vertices
+		cityNames = new String[v]; // create an array of strings with v indices
 		for(int i = 0; i < v; i++) { // loop through cityNames and scan each line of input file
 			cityNames[i] = fileScan.nextLine();
 		}
@@ -82,7 +82,7 @@ public class AirlineSystem {
 		for(int i = 0; i < G.v; i++) { // In order to do this, we must first loop over all vertices in Digraph
 			System.out.println(cityNames[i] + ": "); // Then, we can print the first city that matches with current vertex
 			for(DirectedEdge e : G.adj(i)) { // Here I added a nested enhanced for loop that will iterate over EDGES of vertices rather than the vertices themselves
-				System.out.println(cityNames[e.to()]); // Finally, print the destination city that matches current edge
+				System.out.println(cityNames[e.to()] + " "); // Finally, print the destination city that matches current edge
 			}
 			System.out.println();
 		}
