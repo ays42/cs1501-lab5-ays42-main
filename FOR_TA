@@ -1,0 +1,8 @@
+To the TA grading this Lab,
+
+I have 0 idea what could be wrong with my code - it runs/compiles perfectly fine on command line, but once I use
+the autograder, it's unable to compile at all!
+
+I've tried running it through VSCode, and instead of not compiling, it was unable to find the data1.txt file when I
+called it in my input argument. I don't know what it is, because I don't think any of my fileScan lines are wrong
+or misplaced. I'm hoping you can understand my struggles and I can earn at least some partial credit!
